@@ -1,33 +1,32 @@
 from random import shuffle
 
-string = 'abcdefghijklmnopqrstuvwxyz'
+string = 'abcdefghijklmnopqrstuvwxyz '
 plaintext = list(string)
-
 
 class Cipher:
 
     def key_gen(self):
-        to_shuffle = list(plaintext)
+        to_shuffle = list(string)
         shuffle(to_shuffle)
         self.key = to_shuffle
 
     def encrypt(self, text):
-        output = ''
+        output = []
         for letter in text:
             index_plaintext = plaintext.index(letter)
             encrypted_letters = self.key[index_plaintext]
-            output = output + encrypted_letters
-        print("Ciphertext:", repr(output))
+            output.append(encrypted_letters)
+        print("Ciphertext:", ''.join(output))
 
     def decrypt(self, key):
-        output2 = ''
+        output2 = []
         print("Here is your key to decrypt:", ''.join(self.key))
         if input("Enter key:") == ''.join(self.key):
             for letter in key:
                 index_output = self.key.index(letter)
-                decrypted_letteres = plaintext[index_output]
-                output2 = output2 + decrypted_letteres
-            print("Message decrypted: ", repr(output2))
+                decrypted_letters = plaintext[index_output]
+                output2.append(decrypted_letters)
+            print("Message decrypted: ", ''.join(output2))
         else:
             print("Access denied!")
 
