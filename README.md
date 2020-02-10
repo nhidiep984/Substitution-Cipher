@@ -1,2 +1,2 @@
-# substitution_cipher
+# Substitution Cipher Program
 
