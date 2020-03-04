@@ -3,7 +3,7 @@ import random
 
 def main():
   key_gen()
-  message = input("Enter message to encrypt: ")
+  message = input("Enter message to encrypt: ").lower()
   ciphertext = encryption(message)
   print(f"Ciphertext: {ciphertext}")
   print(f"Key: {key}")

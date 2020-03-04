@@ -1,8 +1,17 @@
+import re
+
 def main():
   ciphertext = input("Enter ciphertext: ")
-  ciphertext = ciphertext.replace(" ", '')
-  letters = 'abcdefghijklmnopqrstuvwxyz'
+  ciphertext = extract(ciphertext)
   freq_analysis(ciphertext)
+
+def extract(ciphertext):
+    ciphertext = ciphertext.replace(" ", '').lower()
+    ciphertext_only_alpha = ""
+    for char in ciphertext:
+      if char.isalpha():
+        ciphertext_only_alpha += char
+    return ciphertext_only_alpha
 
 def freq_analysis(ciphertext):
   letters = 'abcdefghijklmnopqrstuvwxyz'
